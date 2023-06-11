@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --soft-red-transparent: hsla(7, 99%, 70%, 50%);
+  --yellow: hsl(51, 100%, 49%);
+  --yellow-transparent: hsla(51, 100%, 49%, 50%);
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  --dark-blue: hsl(198, 62%, 26%);
+  --dark-moderate-cyan: hsl(168, 34%, 41%);
+  --footer-cyan: hsl(167deg 45% 70%);
+  --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+  --very-dark-grayish-blue: hsl(213, 9%, 39%);
+  --dark-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --white-transparent: hsla(0, 0%, 100%, 50%);
+  --nav-blue-1: hsl(200deg 100% 62%);
+  --nav-blue-2: hsl(200deg 86% 58%);
+  --border-radius: 25px;
+  --border-radius-strong: 50px;
+  --nav-gradient: linear-gradient(
+    to left,
+    hsl(200deg 100% 62%),
+    hsl(200deg 86% 58%)
+  );
+}
+/************** main styles ********************/
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  font-family: "Fraunces", serif;
+  text-align: center;
+}
+main {
+  width: 100vw;
+}
+main img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+/**************** HEADER AND NAVIGATION *********************/
+/*** NAVBAR ***/
+nav {
+  position: fixed;
+  box-shadow: 0 5px 10px var(--dark-blue);
+  background: var(--nav-gradient);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  width: 100%;
+  z-index: 1;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: none;
+}
+nav > a {
+  margin-left: 1.25rem;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+.burger-button {
+  position: relative;
+  margin-right: 2rem;
+}
+.popup-container {
+  display: none;
+}
+/******************** ACTIVE NAVBAR *******************/
+/* This code block until JS handles the toggle button without using JS */
+/* Fallback if JS does not work */
+.popup-container:target {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 30rem;
+}
+.close-burger {
+  position: absolute;
+  top: 38%;
+  margin-right: 2rem;
+}
+.popup-container:target + div .burger-button {
+  visibility: hidden;
+}
+/*** JS class ***/
+/* same class as above but will be added in JS for toggling */
+.toggle {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 30rem;
+}
+/*** Popup container box ***/
+.triangle {
+  position: absolute;
+  top: 12%;
+  right: 0%;
+  border-left: 50px solid transparent;
+  border-right: 0 solid transparent;
+  border-bottom: 50px solid var(--white);
+}
+nav ul {
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  width: 100%;
+  height: 30rem;
+  font-family: "Barlow", sans-serif;
+  color: var(--dark-grayish-blue);
+  font-size: 2rem;
+  z-index: 3;
+}
+nav a {
+  color: var(--grayish-blue);
+}
+.contact {
+  background-color: var(--yellow);
+  width: 30%;
+  align-self: center;
+  padding: 1rem;
+  border-radius: var(--border-radius-strong);
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.contact a {
+  color: var(--very-dark-desaturated-blue);
+}
+/*** HEADER ***/
+header {
+  display: block;
+  width: 100%;
+}
+h1 {
+  position: absolute;
+  font-size: 3rem;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-transform: uppercase;
+}
+/*** ANIMATION ***/
+.arrow {
+  display: block;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: arrow 3s ease-out infinite;
+  filter: drop-shadow(0 3px 2px var(--dark-grayish-blue));
+}
+@keyframes arrow {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 50%);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+/****************** MAIN SECTIONS ************************/
+.img-header,
+.img-graphic-design,
+.img-photography {
+  z-index: -1;
+  width: 100%;
+  display: block;
+}
+.graphic-design,
+.photography {
+  position: relative;
+}
+.graphic-design,
+.graphic-design p {
+  color: var(--dark-desaturated-cyan);
+}
+.photography,
+.photography p {
+  color: var(--dark-blue);
+}
+.picture-container {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+}
+section h2 {
+  font-size: 1.75rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+section p {
+  color: var(--dark-grayish-blue);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-family: "Barlow", sans-serif;
+  margin: 0;
+}
+.picture-container p {
+  font-size: 1rem;
+}
+.transform-text,
+.standout-text {
+  padding: 0 2rem;
+}
+.transform-text h2,
+.standout-text h2 {
+  font-size: 2rem;
+}
+section img {
+  display: block;
+}
+.pictures div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.pictures div img {
+  width: 50vw;
+}
+.pictures div img {
+  display: block;
+}
+/*** LEARN MORE LINKS ***/
+section a {
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  color: var(--very-dark-desaturated-blue);
+}
+section a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -5px;
+  width: 110%;
+  z-index: -1;
+  border-radius: var(--border-radius);
+}
+.transform-text a::after {
+  border-bottom: 0.75rem solid var(--yellow-transparent);
+}
+.transform-text a:hover::after {
+  border-bottom: 0.75rem solid var(--yellow);
+}
+.standout-text a::after {
+  border-bottom: 0.75rem solid var(--soft-red-transparent);
+}
+.standout-text a:hover::after {
+  border-bottom: 0.75rem solid var(--soft-red);
+}
+/************** TESTIMONIALS ***************/
+.testimonials {
+  padding: 3rem;
+}
+article {
+  margin: 3rem 1rem;
+}
+article p {
+  margin: 3rem 0;
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.5rem;
+  color: var(--very-dark-desaturated-blue);
+}
+h4 {
+  font-size: 1rem;
+  color: var(--grayish-blue);
+  font-family: "Barlow", sans-serif;
+}
+article img {
+  width: 5rem;
+  margin: auto;
+  border-radius: 50%;
+}
+.testimonials h2 {
+  color: var(--grayish-blue);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+}
+/******************* FOOTER *******************/
+footer {
+  background-color: var(--footer-cyan);
+  width: 100%;
+}
+footer img {
+  margin: 3rem 0;
+  filter: brightness(0) saturate(100%) invert(23%) sepia(71%) saturate(361%)
+    hue-rotate(116deg) brightness(98%) contrast(84%);
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer li {
+  display: inline;
+  margin: 2rem;
+  color: var(--dark-desaturated-cyan);
+}
+.links li {
+  font-size: 1rem;
+  font-family: "Barlow", sans-serif;
+}
+.links li a {
+  color: var(--dark-desaturated-cyan);
+}
+.links li a:hover {
+  color: var(--white);
+}
+.social-links li {
+  margin: 2rem 1rem;
+}
+.social-links li:hover {
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(191deg) brightness(106%) contrast(101%);
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/************************ MEDIA QUERIES ************************/
+@media only screen and (min-width: 870px) {
+  /*** NAVBAR AND HEADER ***/
+  .popup-container {
+    display: block;
+  }
+  .popup-container:target {
+    display: flex;
+    height: 0;
+  }
+  nav {
+    width: 100%;
+  }
+  nav img {
+    margin-left: 1.5rem;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    color: var(--white);
+    font-size: 1rem;
+    position: static;
+    justify-content: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    height: 0;
+    font-family: "Barlow", sans-serif;
+  }
+  nav a {
+    color: var(--white);
+  }
+  .triangle {
+    display: none;
+  }
+  nav div {
+    display: flex;
+    align-items: center;
+  }
+  nav div img {
+    display: none;
+  }
+  .contact {
+    color: var(--very-dark-desaturated-blue);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    width: 4rem;
+  }
+  .contact:hover {
+    background-color: var(--white-transparent);
+  }
+  .contact:hover a {
+    color: var(--white);
+    text-decoration: none;
+  }
+  nav li {
+    display: inline;
+    margin: 0 1rem;
+  }
+  /********************** MAIN DESCRIPTION *******************/
+  .transform-text,
+  .standout-text {
+    padding: 0 10rem;
+    text-align: left;
+  }
+  .pictures div img {
+    width: 25vw;
+  }
+  article {
+    margin: 5rem 5rem;
+  }
+  section h2 {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+  }
+  .testimonials h2 {
+    margin-top: 5rem;
+  }
+  .graphic-design h2,
+  .photography h2 {
+    font-size: 1.75rem;
+    font-weight: 900;
+  }
+  .graphic-design p,
+  .photography p {
+    font-size: 1rem;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+  }
+  .transform-img {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+  .transform-text {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .standout-img {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .standout-text {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  /************************/
+  .testimonials-container {
+    display: flex;
+  }
+  .pictures {
+    display: flex;
+  }
+  .picture-container {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 1225px) {
+  section h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  .testimonials h2 {
+    margin-top: 5rem;
+  }
+  section a {
+    margin: 0;
+  }
+  section p {
+    color: var(--dark-grayish-blue);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Barlow", sans-serif;
+    margin: 3rem 0;
+  }
+  .transform-text,
+  .standout-text {
+    padding: 0 5rem;
+    text-align: left;
+  }
+  article {
+    margin: 5rem 2rem;
+  }
+  .picture-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+  }
+}
