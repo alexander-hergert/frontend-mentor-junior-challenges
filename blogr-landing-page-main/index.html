@@ -15,18 +15,21 @@
     <title>Frontend Mentor | [Blogr]</title>
   </head>
   <body>
-    <!-- HEAD CONTENT -->
+    <!----- HEAD CONTENT ----->
     <header>
-      <!--- NAVBAR --->
+      <!----- NAVBAR ----->
       <nav>
         <div class="left-nav">
           <div class="logo-container">
             <img src="./images/logo.svg" alt="logo blogr" />
           </div>
           <div class="menu-options-container">
-            <!-- Links start -->
+            <!----- Links start ----->
             <div class="links-container">
-              <a class="nav-link" href="#product">Product</a>
+              <div class="nav-link-container">
+                <a class="nav-link" href="#product">Product</a>
+                <img src="./images/icon-arrow-light.svg" alt="arrow-icon" aria-hidden="true"/>
+              </div>
               <div class="sublinks-container">
                 <ul>
                   <li><a href="">Overview</a></li>
@@ -38,7 +41,10 @@
               </div>
             </div>
             <div class="links-container">
-              <a class="nav-link" href="#company">Company</a>
+              <div class="nav-link-container">
+                <a class="nav-link" href="#company">Company</a>
+                <img src="./images/icon-arrow-light.svg" alt="arrow-icon" aria-hidden="true"/>
+              </div>
               <div class="sublinks-container">
                 <ul>
                   <li><a href="">About</a></li>
@@ -49,7 +55,10 @@
               </div>
             </div>
             <div class="links-container">
-              <a class="nav-link" href="#connect">Connect</a>
+              <div class="nav-link-container">
+                <a class="nav-link" href="#connect">Connect</a>
+                <img src="./images/icon-arrow-light.svg" alt="arrow-icon" aria-hidden="true"/>
+              </div>
               <div class="sublinks-container">
                 <ul>
                   <li><a href="">Contact</a></li>
@@ -58,7 +67,7 @@
                 </ul>
               </div>
             </div>
-            <!-- Links end -->
+            <!----- Links end ----->
           </div>
         </div>
         <div class="right-nav">
@@ -73,11 +82,11 @@
         <!-------------------------- TOGGLE BUTTON ------------------------------>
         <div class="menu">
           <div class="">
-            <!-- Links start -->
+            <!----- Links start ----->
             <div class="links-container-menu">
               <div class="nav-link-container-menu">
                 <a class="nav-link-menu" href="#product">Product</a>
-                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" />
+                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" aria-hidden="true"/>
               </div>
               <div class="sublinks-container-menu">
                 <ul>
@@ -92,7 +101,7 @@
             <div class="links-container-menu">
               <div class="nav-link-container-menu">
                 <a class="nav-link-menu" href="#company">Company</a>
-                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" />
+                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" aria-hidden="true"/>
               </div>
               <div class="sublinks-container-menu">
                 <ul>
@@ -106,7 +115,7 @@
             <div class="links-container-menu">
               <div class="nav-link-container-menu">
                 <a class="nav-link-menu" href="#connect">Connect</a>
-                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" />
+                <img src="./images/icon-arrow-dark.svg" alt="arrow-icon" aria-hidden="true"/>
               </div>
               <div class="sublinks-container-menu">
                 <ul>
@@ -116,7 +125,7 @@
                 </ul>
               </div>
             </div>
-            <!-- Links end -->
+            <!----- Links end ----->
           </div>
           <div class="nav-buttons-container-menu">
             <ul>
@@ -126,7 +135,7 @@
           </div>
         </div>
       </nav>
-      <!--- HEADER  --->
+      <!----- HEADER  ----->
       <div class="header-container">
         <h1>A modern publishing platform</h1>
         <p>Grow your audience and build your online brand</p>
@@ -138,7 +147,7 @@
     </header>
     <!-- MAIN CONTENT -->
     <main>
-      <!---- FIRST SECTION  ---->
+      <!----- FIRST SECTION  ----->
       <section id="product" class="product">
         <h2>Designed for the future</h2>
         <div class="product-container">
@@ -180,14 +189,14 @@
           </div>
         </div>
       </section>
-      <!---- SECOND SECTION  ---->
+      <!----- SECOND SECTION  ----->
       <section id="company" class="company">
         <img
           class="image-phones"
           src="./images/illustration-phones.svg"
           alt="illustration-phones"
         />
-        <div>
+        <article>
           <h2>State of the Art Infrastructure</h2>
           <p>
             With reliability and speed in mind, worldwide data centers provide
@@ -195,9 +204,9 @@
             will load instantly, no matter where your readers are, keeping your
             site competitive.
           </p>
-        </div>
+        </article>
       </section>
-      <!---- THIRD SECTION  ---->
+      <!----- THIRD SECTION  ----->
       <section id="connect" class="connect">
         <div class="connect-container">
           <picture class="image-laptop">
@@ -215,34 +224,36 @@
             />
           </picture>
           <div class="connect-article-container">
-            <h3>Free, open, simple</h3>
-            <p>
-              Blogr is a free and open source application backed by a large
-              community of helpful developers. It supports features such as code
-              syntax highlighting, RSS feeds, social media integration,
-              third-party commenting tools, and works seamlessly with Google
-              Analytics. The architecture is clean and is relatively easy to
-              learn.
-            </p>
-            <div>
+            <article>
+              <h3>Free, open, simple</h3>
+              <p>
+                Blogr is a free and open source application backed by a large
+                community of helpful developers. It supports features such as
+                code syntax highlighting, RSS feeds, social media integration,
+                third-party commenting tools, and works seamlessly with Google
+                Analytics. The architecture is clean and is relatively easy to
+                learn.
+              </p>
+            </article>
+            <article>
               <h3>Powerful tooling</h3>
               <p>
                 Batteries included. We built a simple and straightforward CLI
                 tool that makes customization and deployment a breeze, but
                 capable of producing even the most complicated sites.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
-    <!-- FOOTER CONTENT -->
+    <!----- FOOTER CONTENT ----->
     <footer>
       <div class="footer-container">
         <div class="logo-container">
           <img src="./images/logo.svg" alt="logo blogr" />
         </div>
-        <div class="">
+        <div class="footer-link">
           <a href="#product">Product</a>
           <ul>
             <li><a href="">Overview</a></li>
@@ -252,7 +263,7 @@
             <li><a href="">Integrations</a></li>
           </ul>
         </div>
-        <div class="">
+        <div class="footer-link">
           <a href="#company">Company</a>
           <ul>
             <li><a href="">About</a></li>
@@ -261,7 +272,7 @@
             <li><a href="">Careers</a></li>
           </ul>
         </div>
-        <div class="">
+        <div class="footer-link">
           <a href="#connect">Connect</a>
           <ul>
             <li><a href="">Contact</a></li>

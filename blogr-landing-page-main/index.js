@@ -11,13 +11,16 @@ const handleToggle = () => {
   } else {
     menuIcon.src = "./images/icon-hamburger.svg";
     menu.classList.remove("menu-active");
+    sublinksContainerMenu.forEach((container) => {
+      container.classList.remove("sublinks-container-menu-active");
+    });
   }
 };
 menuIcon.addEventListener("click", handleToggle);
 
 //Hover over Navlinks
 const linksContainer = document.body.querySelectorAll(".links-container");
-const navLinks = document.body.querySelectorAll(".nav-link");
+const navLinkContainer = document.body.querySelectorAll(".nav-link-container");
 const sublinksContainer = document.body.querySelectorAll(".sublinks-container");
 
 const handleOnMouseEnter = (e) => {
@@ -30,7 +33,7 @@ const handleOnMouseLeave = (e) => {
   );
 };
 
-navLinks.forEach((link) => {
+navLinkContainer.forEach((link) => {
   link.addEventListener("mouseenter", handleOnMouseEnter);
 });
 
@@ -65,3 +68,43 @@ const handleClick = (e) => {
 navLinksContainerMenu.forEach((container) => {
   container.addEventListener("click", handleClick);
 });
+
+//Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
+
+//Close menu on resizing screen
+let windowSize = window.innerWidth;
+
+const closeMenu = () => {
+  windowSize = window.innerWidth;
+  if (windowSize > 900) {
+    toggle = false;
+    sublinksContainerMenu.forEach((container) => {
+      container.classList.remove("sublinks-container-menu-active");
+    });
+    menuIcon.src = "./images/icon-hamburger.svg";
+    menu.classList.remove("menu-active");
+  }
+};
+
+window.addEventListener("resize", closeMenu);
+
+//Navbar scroll effect
+const nav = document.body.querySelector("nav");
+
+window.onscroll = () => {
+  const scrollDistance = 500;
+  if (window.scrollY > scrollDistance) {
+    nav.classList.add("nav-scroll");
+  } else if (window.scrollY < scrollDistance) {
+    nav.classList.remove("nav-scroll");
+  }
+};

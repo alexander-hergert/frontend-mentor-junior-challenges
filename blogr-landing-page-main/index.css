@@ -10,8 +10,7 @@
   --very-dark-grayish-blue: hsl(207, 13%, 34%);
   --very-dark-black-blue: hsl(240, 10%, 16%);
   --border-radius: 15px;
-  --very-light-red: hsl(13, 100%, 72%);
-  --light-red: hsl(353, 100%, 62%);
+  --very-light-red-second: hsl(13, 100%, 72%);
   --very-dark-gray-blue: hsl(237, 17%, 21%);
   --very-dark-desaturated-blue: hsl(237, 23%, 32%);
   /*** RADIUS ***/
@@ -41,14 +40,22 @@ p {
   line-height: 1.5;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 /********* MOBILE *********/
 
 /********* NAVBAR AND HEADER *********/
 
 header {
   background: url("./images/bg-pattern-intro-mobile.svg") no-repeat center/cover,
-    linear-gradient(to bottom, var(--very-light-red), var(--light-red));
-  background-size: 200%;
+    linear-gradient(
+      to right bottom,
+      var(--very-light-red-second),
+      var(--light-red)
+    );
+  background-size: 250%;
   border-bottom-left-radius: var(--border-radius-20);
   min-height: 50vh;
   border-bottom-left-radius: var(--border-radius-100);
@@ -58,11 +65,29 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
+}
+
+.nav-scroll {
+  position: fixed;
+  background: linear-gradient(
+    to right,
+    var(--very-light-red-second),
+    var(--light-red)
+  );
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  padding: 2rem 0;
+  justify-content: space-around;
+  transition: 1s;
 }
 
 .left-nav {
   display: flex;
+  align-items: center;
 }
 
 .menu-options-container {
@@ -78,31 +103,50 @@ nav {
 }
 
 .nav-buttons-container {
-  padding: 1rem 3rem;
+  display: flex;
+}
+
+.nav-buttons-container a:first-child {
+  color: var(--white);
+  margin-right: 2rem;
+}
+
+.nav-buttons-container a:last-child {
   background-color: var(--white);
+  color: var(--light-red);
+  padding: 1rem 3rem;
   border-radius: var(--border-radius-30);
 }
 
+.nav-buttons-container a:last-child:hover {
+  color: var(--white);
+  background-color: var(--very-light-red);
+}
+
+img[src="./images/icon-hamburger.svg"],
+img[src="./images/icon-close.svg"] {
+  cursor: pointer;
+}
+
 /*** NAVBAR ACTIVE STATE ***/
+
 .menu-active {
   display: block;
   position: fixed;
-  top: 5rem;
+  top: 8rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--white);
   box-shadow: 0 5px 10px var(--very-dark-blue);
   border-radius: var(--border-radius-15);
-  width: 90%;
+  width: 75%;
   text-align: center;
+  padding: 2rem;
+  z-index: 30;
 }
 
 .menu-active a {
   color: var(--very-dark-blue);
-}
-
-.links-container-menu {
-  margin: 2rem;
 }
 
 .nav-link-menu + img {
@@ -117,6 +161,7 @@ nav {
 .nav-link-container-menu {
   position: relative;
   cursor: pointer;
+  margin: 1rem 0;
 }
 
 .nav-link-container-menu a,
@@ -140,8 +185,13 @@ nav {
   display: block;
 }
 
+.sublinks-container a:hover {
+  color: black;
+  font-weight: bold;
+}
+
 .nav-buttons-container-menu ul li:nth-child(2) {
-  padding: 1rem 3rem;
+  padding: 1rem 0;
   background: linear-gradient(
     to right,
     var(--very-light-red),
@@ -149,18 +199,36 @@ nav {
   );
   border-radius: var(--border-radius-30);
   width: 50%;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .nav-buttons-container-menu ul li:nth-child(2) a {
   color: var(--white);
+}
+
+.nav-buttons-container-menu {
+  border-top: 1px solid var(--grayish-blue);
 }
 /*************** HEADER *************/
 
 .header-container {
   color: var(--white);
   text-align: center;
-  margin-top: 6rem;
+  margin: 6rem 0;
+}
+
+h1,
+section h2,
+section h3 {
+  font-family: "Overpass", sans-serif;
+}
+
+.links-container a {
+  color: var(--white);
+}
+
+.nav-link-container:hover img {
+  transform: rotate(180deg);
 }
 
 .header-buttons-container {
@@ -177,10 +245,22 @@ nav {
 .header-container a:first-child {
   background-color: var(--white);
   color: var(--light-red);
+  padding: 1rem 1rem;
+}
+
+.header-container a:first-child:hover {
+  color: var(--white);
+  background-color: var(--very-light-red);
 }
 
 .header-container a:last-child {
   color: var(--white);
+  padding: 1rem 1rem;
+}
+
+.header-container a:last-child:hover {
+  color: var(--very-light-red);
+  background-color: var(--white);
 }
 
 /********* MAIN ***********/
@@ -189,39 +269,85 @@ main {
   text-align: center;
 }
 
-section {
+article {
   padding: 2rem;
+}
+
+.product {
+  padding: 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--very-dark-desaturated-blue);
+}
+
+section h3 {
+  font-size: 1.5rem;
+  color: var(--very-dark-desaturated-blue);
+}
+
+/****** SECTION 1 ******/
+
+.product img {
+  width: 100%;
+}
+.product p {
+  color: var(--very-dark-blue);
+}
+
+.product h2 {
+  margin: 5rem 0;
 }
 
 /****** SECTION 2 ******/
 
 .company {
-  margin-top: 10rem;
-  background-color: var(--very-dark-desaturated-blue);
+  margin-top: 15rem;
+  background-color: var(--very-dark-gray-blue);
   border-top-right-radius: var(--border-radius-100);
   border-bottom-left-radius: var(--border-radius-100);
   position: relative;
   color: var(--white);
   background-image: url("./images/bg-pattern-circles.svg");
+  filter: grayscale(10%);
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 0 -5rem;
+  background-position: left -8rem top -20rem;
+  background-size: 150%;
 }
 
 .company img {
   width: 100%;
   position: relative;
-  top: -15rem;
+  top: -12rem;
 }
 
 .company h2 {
   margin-top: -15rem;
+  color: var(--white);
+}
+
+.company article {
+  margin-bottom: 3rem;
+  padding-bottom: 5rem;
+}
+
+.company article p {
+  line-height: 2;
 }
 
 /****** SECTION 3 *******/
 
 .connect img {
   width: 100%;
+}
+
+.connect-article-container p {
+  color: var(--very-dark-blue);
+}
+
+.connect-article-container article {
+  padding-bottom: 0;
 }
 /****** FOOTER *******/
 
@@ -230,37 +356,66 @@ footer {
   border-top-right-radius: var(--border-radius-100);
   padding: 2rem;
   text-align: center;
+  margin-top: 5rem;
 }
 
 footer a {
   color: var(--white);
 }
 
+.footer-container li {
+  margin: 0.5rem 0;
+}
+
+.footer-link ul {
+  margin-top: 2rem;
+}
+
+.footer-link ul li {
+  font-size: 0.75rem;
+}
+
+footer .logo-container {
+  margin: 3rem 0;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
+  color: var(--white);
+  margin-top: 2rem;
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--white);
 }
 
 /********* DESKTOP *********/
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 900px) {
   header {
     background: url("./images/bg-pattern-intro-desktop.svg") no-repeat
         center/cover,
-      linear-gradient(to right, var(--very-light-red), var(--light-red));
+      linear-gradient(to right, var(--very-light-red-second), var(--light-red));
     background-size: 200%;
-    border-bottom-left-radius: 0;
   }
 
   /********* NAVBAR AND HEADER *********/
 
   .menu-options-container {
     display: flex;
+    align-items: center;
     gap: 2rem;
+    margin-left: 3rem;
+  }
+
+  .links-container img {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    transition: transform 0.2s ease-in;
   }
 
   .right-nav {
@@ -271,6 +426,8 @@ footer a {
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 2rem;
+    margin-top: 1rem;
   }
 
   .sublinks-container {
@@ -281,7 +438,19 @@ footer a {
     display: block;
     position: absolute;
     top: 2rem;
+    left: -1rem;
     background-color: var(--white);
+    padding: 1rem;
+    padding-right: 3rem;
+    border-radius: 5px;
+  }
+
+  .sublinks-container-active li a {
+    color: var(--very-dark-black-blue);
+  }
+
+  .sublinks-container-active li {
+    margin: 1rem 0;
   }
 
   .nav-buttons-container {
@@ -290,6 +459,11 @@ footer a {
 
   .nav-burger-buttons {
     display: none;
+  }
+
+  .header-container a:first-child,
+  .header-container a:last-child {
+    padding: 1rem 2rem;
   }
 
   /****** MAIN *******/
@@ -301,20 +475,25 @@ footer a {
   /******* SECTION 1 *******/
 
   .product {
-    padding: 3rem;
+    padding-left: 9rem;
     position: relative;
   }
 
+  .product h2 {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
+
   .product img {
-    width: 100%;
     position: relative;
-    left: 20vw;
+    left: 17vw;
   }
 
   .product-container {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    margin-top: -7rem;
   }
 
   .product-article-container {
@@ -322,13 +501,31 @@ footer a {
     width: 50%;
   }
 
+  .product-article-container article:first-child {
+    margin-bottom: 3rem;
+  }
+
   /***** SECTION 2 ****/
   .company {
     display: flex;
     align-items: center;
-
-    height: 22rem;
+    padding: 0 5rem;
+    height: 27rem;
     margin-top: 0;
+    text-align: left;
+    background-image: url("./images/bg-pattern-circles.svg");
+    filter: grayscale(10%);
+    background-repeat: no-repeat;
+    background-position: left -40% bottom 25%;
+    background-size: auto;
+    margin-top: 2rem;
+    padding-left: 8rem;
+  }
+
+  .company article {
+    width: 50%;
+    padding: 3rem;
+    margin-bottom: 0;
   }
 
   .company h2 {
@@ -337,9 +534,15 @@ footer a {
 
   .company img {
     position: static;
+    width: 50%;
   }
 
   /****** SECTION 3 ******/
+
+  .connect {
+    margin-top: 5rem;
+  }
+
   .connect-container {
     display: flex;
     flex-direction: row;
@@ -349,17 +552,35 @@ footer a {
   .connect-article-container {
     text-align: left;
     width: 50%;
+    padding-right: 9rem;
   }
 
   .connect img {
     width: 100%;
     position: relative;
-    left: -20vw;
+    left: -15vw;
   }
 
   /****** FOOTER *******/
+
+  footer {
+    margin-top: 2rem;
+    text-align: left;
+  }
+
   .footer-container {
     display: flex;
     justify-content: space-around;
+    margin-top: 2rem;
+    margin-left: -5rem;
+  }
+
+  .footer-container li {
+    margin: 1rem 0;
+  }
+
+  footer .logo-container {
+    margin: 3rem 0;
+    margin-top: 0;
   }
 }
