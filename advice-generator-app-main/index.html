@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./src/styles/normalize.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <script type="module" src="./src/scripts/index.js" defer></script>
+    <title>Frontend Mentor | Advice generator app</title>
+  </head>
+  <body>
+    <main>
+        <h1 id="advice">Load advice...</h1>
+        <p id="quote">Load advice...</p>
+        <div>
+          <picture>
+            <source
+              media="(max-width: 800px)"
+              srcset="images/pattern-divider-mobile.svg"
+            />
+            <source
+              media="(min-width: 801px)"
+              srcset="images/pattern-divider-desktop.svg"
+            />
+            <img src="images/pattern-divider-mobile.svg" alt="parfume" />
+          </picture>
+      </div>
+      <a id="dice"><img src="./images/icon-dice.svg" alt="dice" /></a>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a
+        target="_blank"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a target="_blank" href="https://www.frontendmentor.io/profile/ChVoS1989"
+        >Alexander Hergert</a
+      >.
+    </footer>
+  </body>
+</html>
