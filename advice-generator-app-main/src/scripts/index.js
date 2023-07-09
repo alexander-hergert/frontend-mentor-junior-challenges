@@ -11,7 +11,7 @@ const fetchQuote = async (url) => {
   diceButton.classList.add("load");
   //fetch data
   const data = await fetchData(url);
-
+  //error state
   if (typeof data === "string") {
     adviceText.classList.add("error");
     quoteText.classList.add("error");
@@ -19,7 +19,6 @@ const fetchQuote = async (url) => {
     quoteText.innerHTML = data;
     return;
   }
-
   //destructuring slip object from data
   const { id, advice } = data["slip"];
   //change text
@@ -31,6 +30,9 @@ const fetchQuote = async (url) => {
   }, 2000);
 };
 
-diceButton.addEventListener("click", () => fetchQuote(url));
+diceButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  fetchQuote(url);
+});
 
 fetchQuote(url);
